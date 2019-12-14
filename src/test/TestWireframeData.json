@@ -1,0 +1,193 @@
+{
+    "user": [
+        {
+            "firstName": "Pamela",
+            "lastName": "Kuang",
+            "email": "pamela.kuang@stonybrook.edu",
+            "type": "Administrator", 
+            "userID": "ao99CXuIWDQiZEwt8IVydDAbhwz2",
+            "wireframes": [
+                {
+                    "wireframeID": "0",
+                    "name": "My homepage",
+                    "controls": [
+                        {
+                            "button":
+                                {
+                                    "key": 0,
+                                    "width": 3,
+                                    "height": 4,
+                                    "x_dimension": 0,
+                                    "y_dimension": 0,
+                                    "fontSize": 12,
+                                    "fontColor": "black",
+                                    "borderRadius": 2, 
+                                    "borderThickness": 2,
+                                    "borderColor": "white",
+                                    "background": "black"
+                                }
+                        
+                        },
+                        {
+                            "container": 
+                                {
+                                    "key": 1,
+                                    "width": 2,
+                                    "height": 5,
+                                    "x_dimension": 1,
+                                    "y_dimension": 1,
+                                    "fontSize": 10,
+                                    "fontColor": "blue", 
+                                    "borderRadius": 1,
+                                    "borderThickness": 3,
+                                    "borderColor": "black",
+                                    "background": "white"
+                                }
+                            
+                        },
+                        {
+                            "label": 
+                                {
+                                    "key": 2,
+                                    "width": 2,
+                                    "height": 5,
+                                    "x_dimension": 1,
+                                    "y_dimension": 1,
+                                    "fontSize": 10,
+                                    "fontColor": "blue", 
+                                    "borderRadius": 1,
+                                    "borderThickness": 3,
+                                    "borderColor": "black",
+                                    "background": "white"
+                                }
+                            
+                        },
+                        {
+                            "textfield": 
+                                {
+                                    "key": 3,
+                                    "width": 2,
+                                    "height": 5,
+                                    "x_dimension": 1,
+                                    "y_dimension": 1,
+                                    "fontSize": 10,
+                                    "fontColor": "blue", 
+                                    "borderRadius": 1,
+                                    "borderThickness": 3,
+                                    "borderColor": "black",
+                                    "background": "white"
+                                }
+                        
+                        }
+                    ]
+                },
+                {
+                    "wireframeID": "1",
+                    "name": "an app haha",
+                    "controls": [
+                        {
+                            "label": 
+                                {
+                                    "key": 0,
+                                    "width": 2,
+                                    "height": 5,
+                                    "x_dimension": 1,
+                                    "y_dimension": 1,
+                                    "fontSize": 14,
+                                    "fontColor": "orange",
+                                    "borderRadius": 5, 
+                                    "borderThickness": 5,
+                                    "borderColor": "#000000",
+                                    "background": "#ffffff"
+                                }
+                            
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "firstName": "hahahh",
+            "lastName": "hahahaha",
+            "email": "weeeeee@stonybrook.edu",
+            "type": "UI_Designer", 
+            "userID": "4n7sBQLUSfdbG0LSqqVkxwgMr0J2",
+            "wireframes": [
+                {
+                    "wireframeID": "0",
+                    "name": "another app hehe",
+                    "controls": [
+                        {
+                            "button": 
+                                {
+                                    "key": 0,
+                                    "width": 3,
+                                    "height": 4,
+                                    "x_dimension": 0,
+                                    "y_dimension": 0,
+                                    "fontSize": 12,
+                                    "fontColor": "black",
+                                    "borderRadius": 2, 
+                                    "borderThickness": 2,
+                                    "borderColor": "white",
+                                    "background": "black"
+                                }
+                            
+                        },
+                        {
+                            "container": 
+                                {
+                                    "key": 1,
+                                    "width": 2,
+                                    "height": 5,
+                                    "x_dimension": 1,
+                                    "y_dimension": 1,
+                                    "fontSize": 10,
+                                    "fontColor": "blue", 
+                                    "borderRadius": 1,
+                                    "borderThickness": 3,
+                                    "borderColor": "black",
+                                    "background": "white"
+                                }
+                            
+                        },
+                        {
+                            "label":
+                                {
+                                    "key": 2,
+                                    "width": 2,
+                                    "height": 5,
+                                    "x_dimension": 1,
+                                    "y_dimension": 1,
+                                    "fontSize": 10,
+                                    "fontColor": "blue", 
+                                    "borderRadius": 1,
+                                    "borderThickness": 3,
+                                    "borderColor": "black",
+                                    "background": "white"
+                                }
+                            
+                        },
+                        {
+                            "textfield": 
+                                {
+                                    "key": 3,
+                                    "width": 2,
+                                    "height": 5,
+                                    "x_dimension": 1,
+                                    "y_dimension": 1,
+                                    "fontSize": 10,
+                                    "fontColor": "blue", 
+                                    "borderRadius": 1,
+                                    "borderThickness": 3,
+                                    "borderColor": "black",
+                                    "background": "white"
+                                }
+                            
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

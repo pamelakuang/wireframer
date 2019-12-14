@@ -1,6 +1,7 @@
 html {
   min-height: 100%;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -9,11 +10,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /*background: url(/img/mario-bg.png) no-repeat;
-  background-size: 100%;
-  background-position: bottom;
-  background-color: #95e8f3;*/
   min-height: 100%;
+}
+
+body {
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  top: 5%;
 }
 
 div.banner {
@@ -45,7 +49,33 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   color: #ec407a !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.fixed-action-btn {
+  position: absolute;
 }
+
+.fab:hover + .fab-options, .fixed-action-btn {
+  visibility: visible;
+  bottom: 40px;
+} 
+
+.delete_wireframe {
+  position: absolute;
+  right: 5%;
+  top: 20px;
+  background-color: #0895b8;
+}
+.trash_black {
+  left: 735px;
+}
+
+.list-heading {
+  height: 50px;
+  font-size: 30px;
+}
+
+.add_button {
+  text-align: center;
+}
+
+
+
