@@ -64,6 +64,40 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   top: 20px;
   background-color: #0895b8;
 }
+
+/* .zoom_in {} */
+
+.yes_no_button {
+  background-color: #0895b8;
+}
+/* .row {} */
+
+.column {
+  height: 600px;
+  float: left;
+  width: 30%;
+  margin: 2px;
+  background-color: white;
+  border: 1px solid black;
+}
+.container_button {
+  height: 80px; 
+  width: 170px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  background-color: white;
+}
+
+/* .label_button {} */
+
+.input_button {
+  height: 40px; 
+  width: 150px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  background-color: white;
+}
+
 .trash_black {
   left: 735px;
 }
@@ -75,6 +109,18 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 
 .add_button {
   text-align: center;
+}
+.container_controls {
+  position: absolute;
+  width:100%;
+  height:100%;
+}
+
+.rnd {
+  z-index: 1;
+}
+.rnd_container {
+  z-index: 0;
 }
 
 

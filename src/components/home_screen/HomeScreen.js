@@ -3,11 +3,15 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { Redirect, } from 'react-router-dom';
 import { firestoreConnect } from 'react-redux-firebase';
-import TodoListLinks from './TodoListLinks'
 import {getFirestore} from 'redux-firestore'
+import WireframeLinks from './WireframeLinks.js';
 
 class HomeScreen extends Component {
     
+    state = {
+        newLength: null,
+    }
+
     handleNewList = () => {
         const fireStore = getFirestore();
 
@@ -19,8 +23,8 @@ class HomeScreen extends Component {
         }
         console.log(wireframes);
         const newWireframe = {
-            name: "unknown",
             controls: [],
+            name: "unknown",
             wireframeID: wireframes.length,
         }
         wireframes.push(newWireframe);
@@ -28,16 +32,21 @@ class HomeScreen extends Component {
         fireStore.collection('users').doc(this.props.auth.uid).update({
             wireframes: wireframes,
         });
+        this.setState({newLength: wireframes.length});
     }
     render() {
         if (!this.props.auth.uid) {
             return <Redirect to="/login" />;
         }
+        if (this.state.newLength !== null) {
+            return <Redirect to={"/wireframe/" + this.state.newLength}/>
+        }
+
         return (
             <div className="dashboard container">
                 <div className="row">
                     <div className="col s12 m4">
-                        <TodoListLinks/>
+                        <WireframeLinks/>
                     </div>
 
                     <div className="col s8">
@@ -64,12 +73,8 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = dispatch => ({
-
-});
-
 export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
+    connect(mapStateToProps),
     firestoreConnect([
       { collection: 'users'},
     ]),

@@ -8,98 +8,85 @@
             "userID": "ao99CXuIWDQiZEwt8IVydDAbhwz2",
             "wireframes": [
                 {
-                    "wireframeID": "0",
+                    "wireframeID": 0,
                     "name": "My homepage",
                     "controls": [
                         {
-                            "button":
-                                {
-                                    "key": 0,
-                                    "width": 3,
-                                    "height": 4,
-                                    "x_dimension": 0,
-                                    "y_dimension": 0,
-                                    "fontSize": 12,
-                                    "fontColor": "black",
-                                    "borderRadius": 2, 
-                                    "borderThickness": 2,
-                                    "borderColor": "white",
-                                    "background": "black"
-                                }
+                            "name": "button",
+                            "key": 0,
+                            "width": "80px",
+                            "height": "40px",
+                            "x_dimension": 0,
+                            "y_dimension": 0,
+                            "fontSize": "12px",
+                            "fontColor": "white",
+                            "borderRadius": "10px", 
+                            "borderThickness": "2px",
+                            "borderColor": "black",
+                            "background": "blue"
                         
                         },
                         {
-                            "container": 
-                                {
-                                    "key": 1,
-                                    "width": 2,
-                                    "height": 5,
-                                    "x_dimension": 1,
-                                    "y_dimension": 1,
-                                    "fontSize": 10,
-                                    "fontColor": "blue", 
-                                    "borderRadius": 1,
-                                    "borderThickness": 3,
-                                    "borderColor": "black",
-                                    "background": "white"
-                                }
-                            
+                            "name": "container",
+                            "key": 1,
+                            "width": "20px",
+                            "height": "50px",
+                            "x_dimension": 1,
+                            "y_dimension": 1,
+                            "fontSize": "10px",
+                            "fontColor": "blue", 
+                            "borderRadius": "8px",
+                            "borderThickness": "3px",
+                            "borderColor": "black",
+                            "background": "white"
                         },
                         {
-                            "label": 
-                                {
-                                    "key": 2,
-                                    "width": 2,
-                                    "height": 5,
-                                    "x_dimension": 1,
-                                    "y_dimension": 1,
-                                    "fontSize": 10,
-                                    "fontColor": "blue", 
-                                    "borderRadius": 1,
-                                    "borderThickness": 3,
-                                    "borderColor": "black",
-                                    "background": "white"
-                                }
-                            
+                            "name": "label",
+                            "key": 2,
+                            "width": "20px",
+                            "height": "50px",
+                            "x_dimension": 1,
+                            "y_dimension": 1,
+                            "fontSize": "12px",
+                            "fontColor": "blue", 
+                            "borderRadius": "1px",
+                            "borderThickness": "3px",
+                            "borderColor": "black",
+                            "background": "white"
                         },
                         {
-                            "textfield": 
-                                {
-                                    "key": 3,
-                                    "width": 2,
-                                    "height": 5,
-                                    "x_dimension": 1,
-                                    "y_dimension": 1,
-                                    "fontSize": 10,
-                                    "fontColor": "blue", 
-                                    "borderRadius": 1,
-                                    "borderThickness": 3,
-                                    "borderColor": "black",
-                                    "background": "white"
-                                }
-                        
+                            "name": "textfield",
+                            "key": 3,
+                            "width": "10px",
+                            "height": "10px",
+                            "x_dimension": 1,
+                            "y_dimension": 1,
+                            "fontSize": "15px",
+                            "fontColor": "blue", 
+                            "borderRadius": "1px",
+                            "borderThickness": "3px",
+                            "borderColor": "black",
+                            "background": "white"
                         }
                     ]
                 },
                 {
-                    "wireframeID": "1",
+                    "wireframeID": 1,
                     "name": "an app haha",
                     "controls": [
                         {
-                            "label": 
-                                {
-                                    "key": 0,
-                                    "width": 2,
-                                    "height": 5,
-                                    "x_dimension": 1,
-                                    "y_dimension": 1,
-                                    "fontSize": 14,
-                                    "fontColor": "orange",
-                                    "borderRadius": 5, 
-                                    "borderThickness": 5,
-                                    "borderColor": "#000000",
-                                    "background": "#ffffff"
-                                }
+                            "name": "label",
+                            "key": 0,
+                            "width": "20px",
+                            "height": "15px",
+                            "x_dimension": 1,
+                            "y_dimension": 1,
+                            "fontSize": "14px",
+                            "fontColor": "orange",
+                            "borderRadius": "5px", 
+                            "borderThickness": "5px",
+                            "borderColor": "black",
+                            "background": "white"
                             
                         }
                     ]
@@ -114,76 +101,64 @@
             "userID": "4n7sBQLUSfdbG0LSqqVkxwgMr0J2",
             "wireframes": [
                 {
-                    "wireframeID": "0",
+                    "wireframeID": 0,
                     "name": "another app hehe",
                     "controls": [
                         {
-                            "button": 
-                                {
-                                    "key": 0,
-                                    "width": 3,
-                                    "height": 4,
-                                    "x_dimension": 0,
-                                    "y_dimension": 0,
-                                    "fontSize": 12,
-                                    "fontColor": "black",
-                                    "borderRadius": 2, 
-                                    "borderThickness": 2,
-                                    "borderColor": "white",
-                                    "background": "black"
-                                }
-                            
+                            "name": "button",
+                            "key": 0,
+                            "width": "10px",
+                            "height": "14px",
+                            "x_dimension": 0,
+                            "y_dimension": 0,
+                            "fontSize": "12px",
+                            "fontColor": "black",
+                            "borderRadius": "2px", 
+                            "borderThickness": "2px",
+                            "borderColor": "white",
+                            "background": "black"
                         },
                         {
-                            "container": 
-                                {
-                                    "key": 1,
-                                    "width": 2,
-                                    "height": 5,
-                                    "x_dimension": 1,
-                                    "y_dimension": 1,
-                                    "fontSize": 10,
-                                    "fontColor": "blue", 
-                                    "borderRadius": 1,
-                                    "borderThickness": 3,
-                                    "borderColor": "black",
-                                    "background": "white"
-                                }
-                            
+                            "name": "container",
+                            "key": 1,
+                            "width": "20px",
+                            "height": "15px",
+                            "x_dimension": 1,
+                            "y_dimension": 1,
+                            "fontSize": "10px",
+                            "fontColor": "blue", 
+                            "borderRadius": "3px",
+                            "borderThickness": "3px",
+                            "borderColor": "black",
+                            "background": "white"
                         },
                         {
-                            "label":
-                                {
-                                    "key": 2,
-                                    "width": 2,
-                                    "height": 5,
-                                    "x_dimension": 1,
-                                    "y_dimension": 1,
-                                    "fontSize": 10,
-                                    "fontColor": "blue", 
-                                    "borderRadius": 1,
-                                    "borderThickness": 3,
-                                    "borderColor": "black",
-                                    "background": "white"
-                                }
-                            
+                            "name": "label",
+                            "key": 2,
+                            "width": "20px",
+                            "height": "15px",
+                            "x_dimension": 1,
+                            "y_dimension": 1,
+                            "fontSize": "15px",
+                            "fontColor": "blue", 
+                            "borderRadius": "5px",
+                            "borderThickness": "5px",
+                            "borderColor": "black",
+                            "background": "white"
                         },
                         {
-                            "textfield": 
-                                {
-                                    "key": 3,
-                                    "width": 2,
-                                    "height": 5,
-                                    "x_dimension": 1,
-                                    "y_dimension": 1,
-                                    "fontSize": 10,
-                                    "fontColor": "blue", 
-                                    "borderRadius": 1,
-                                    "borderThickness": 3,
-                                    "borderColor": "black",
-                                    "background": "white"
-                                }
-                            
+                            "name": "textfield",
+                            "key": 3,
+                            "width": "12px",
+                            "height": "10px",
+                            "x_dimension": 1,
+                            "y_dimension": 1,
+                            "fontSize": "12px",
+                            "fontColor": "blue", 
+                            "borderRadius": "5px",
+                            "borderThickness": "3px",
+                            "borderColor": "black",
+                            "background": "white"   
                         }
                     ]
                 }

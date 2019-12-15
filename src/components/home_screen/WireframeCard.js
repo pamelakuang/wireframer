@@ -5,11 +5,11 @@ import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import {getFirestore} from 'redux-firestore'
 
-class TodoListCard extends React.Component {
+class WireframeCard extends React.Component {
     
-    state = {
-        id: null,
-    }
+    // state = {
+    //     //id: null,
+    // }
     stopPropagation = (e) => {
         e.preventDefault();
     }
@@ -23,7 +23,10 @@ class TodoListCard extends React.Component {
                 wireframes = this.props.users[i].wireframes;
             }
         }
-        wireframes.splice(this.props.wireframe.wireframeID, 1);
+        const { wireframe } = this.props;
+        console.log(wireframe);
+
+        console.log(wireframes.splice(wireframes.indexOf(wireframe), 1));
         firestore.collection('users').doc(this.props.auth.uid).update({
             wireframes: wireframes,
         });
@@ -46,8 +49,9 @@ class TodoListCard extends React.Component {
                         <center>
                         <div>Are you sure you want to delete the wireframe?</div>
                         <div>Note: this action is undoable</div>
-                        <Button modal="close" onClick={e => this.deleteWireframe(e)}>yes</Button>
-                        <Button modal="close" onClick={e => this.cancel(e)}>no</Button>
+                        <Button className="yes_no_button" modal="close" onClick={e => this.deleteWireframe(e)}>yes</Button>
+                        &nbsp;
+                        <Button className="yes_no_button"modal="close" onClick={e => this.cancel(e)}>no</Button>
                         </center>
                     </Modal>
                     
@@ -68,4 +72,4 @@ export default compose(
     firestoreConnect([
       { collection: 'users'},
     ]),
-)(TodoListCard); 
+)(WireframeCard); 
