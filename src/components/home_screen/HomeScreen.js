@@ -9,7 +9,7 @@ import WireframeLinks from './WireframeLinks.js';
 class HomeScreen extends Component {
     
     state = {
-        newLength: null,
+        oldLength: null,
     }
 
     handleNewList = () => {
@@ -28,10 +28,10 @@ class HomeScreen extends Component {
             wireframeID: wireframes.length,
         }
         if (wireframes !== null) 
-            this.setState({newLength: wireframes.length});
+            this.setState({oldLength: wireframes.length});
         else
-            this.setState({newLength: 0});
-            
+            this.setState({oldLength: 0});  
+
         wireframes.push(newWireframe);
 
         fireStore.collection('users').doc(this.props.auth.uid).update({
@@ -42,9 +42,9 @@ class HomeScreen extends Component {
         if (!this.props.auth.uid) {
             return <Redirect to="/login" />;
         }
-        if (this.state.newLength !== null) {
-            console.log(this.state.newLength);
-            return <Redirect to={"/wireframe/" + this.state.newLength}/>
+        if (this.state.oldLength !== null) {
+            console.log(this.state.oldLength);
+            return <Redirect to={"/wireframe/" + this.state.oldLength}/>
         }
 
         return (
