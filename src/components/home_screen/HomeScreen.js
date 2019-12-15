@@ -27,18 +27,23 @@ class HomeScreen extends Component {
             name: "unknown",
             wireframeID: wireframes.length,
         }
+        if (wireframes !== null) 
+            this.setState({newLength: wireframes.length});
+        else
+            this.setState({newLength: 0});
+            
         wireframes.push(newWireframe);
 
         fireStore.collection('users').doc(this.props.auth.uid).update({
             wireframes: wireframes,
         });
-        this.setState({newLength: wireframes.length});
     }
     render() {
         if (!this.props.auth.uid) {
             return <Redirect to="/login" />;
         }
         if (this.state.newLength !== null) {
+            console.log(this.state.newLength);
             return <Redirect to={"/wireframe/" + this.state.newLength}/>
         }
 

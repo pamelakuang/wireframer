@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
-import { Button, TextInput } from 'react-materialize';
+import { Button } from 'react-materialize';
 import Container from 'react-materialize/lib/Container';
 import { Rnd }from 'react-rnd'
 
@@ -18,7 +18,7 @@ class ControlsCard extends Component {
         if (control.name === "button") {
             return <Rnd className="rnd"
                 size={{ width: this.state.width,  height: this.state.height }}
-        
+                position={{ x: this.state.x, y: this.state.y }}
                 onDragStop={(e, d) => { this.setState({ x: d.x, y: d.y }) }}
                 onResize={(e, direction, ref, delta, position) => {
                 this.setState({
@@ -38,7 +38,7 @@ class ControlsCard extends Component {
         else if (control.name === "container") {
             return <Rnd className="rnd_container"
                 size={{ width: this.state.width,  height: this.state.height }}
-        
+                position={{ x: this.state.x, y: this.state.y }}
                 onDragStop={(e, d) => { this.setState({ x: d.x, y: d.y }) }}
                 onResize={(e, direction, ref, delta, position) => {
                 this.setState({
@@ -55,11 +55,9 @@ class ControlsCard extends Component {
             </Rnd>
         }
         else if (control.name === "textfield") {
-            console.log(this.state.width);
-            console.log(this.state.height);
             return <Rnd className="rnd"
                 size={{ width: this.state.width,  height: this.state.height }}
-        
+                position={{ x: this.state.x, y: this.state.y }}
                 onDragStop={(e, d) => { this.setState({ x: d.x, y: d.y }) }}
                 onResize={(e, direction, ref, delta, position) => {
                 this.setState({
@@ -69,15 +67,32 @@ class ControlsCard extends Component {
                     });
                 }}
                 >
-                <TextInput className="container_controls" id={control.name + control.key} 
+                <input type="text" className="container_controls" id={control.name + control.key} 
                     style={{color:control.fontColor, background:control.background, fontSize: control.fontSize,
                     borderRadius:control.borderRadius, borderStyle:" solid", borderColor:control.borderColor, 
                     borderWidth:control.borderThickness,}}>
-                </TextInput>
+                </input>
             </Rnd>
         }
         else { // LABEL
-            return(<div>hi</div>);
+            return <Rnd className="rnd"
+                size={{ width: this.state.width,  height: this.state.height }}
+                position={{ x: this.state.x, y: this.state.y }}
+                onDragStop={(e, d) => { this.setState({ x: d.x, y: d.y }) }}
+                onResize={(e, direction, ref, delta, position) => {
+                this.setState({
+                width: ref.offsetWidth,
+                height: ref.offsetHeight,
+                ...position,
+                    });
+                }}
+                >
+                <label className="container_controls" id={control.name + control.key} 
+                    style={{color:control.fontColor, background:control.background, fontSize: control.fontSize,
+                    borderRadius:control.borderRadius, borderStyle:" solid", borderColor:control.borderColor, 
+                    borderWidth:control.borderThickness,}}>Label
+                </label>
+            </Rnd>
         }
         // if (control.name === "container") {
         //     return (<div className="container"></div>);
