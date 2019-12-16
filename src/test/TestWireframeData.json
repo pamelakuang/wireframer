@@ -19,11 +19,11 @@
                             "x": 150,
                             "y": 300,
                             "fontSize": "12px",
-                            "fontColor": "white",
+                            "fontColor": "#ffffff",
                             "borderRadius": "10px", 
                             "borderThickness": "2px",
                             "borderColor": "black",
-                            "background": "blue"
+                            "background": "lightpink"
                         
                         },
                         {

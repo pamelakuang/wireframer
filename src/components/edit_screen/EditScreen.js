@@ -6,7 +6,7 @@ import { Button } from 'react-materialize';
 import { Redirect } from 'react-router-dom';
 import ListControls from './ListControls.js';
 import {getFirestore} from 'redux-firestore';
-import ControlsProperties from './ControlsProperties.js';
+import { SliderPicker } from 'react-color';
 
 class EditScreen extends Component {
 
@@ -14,19 +14,30 @@ class EditScreen extends Component {
         key: null,
         close: false,
         save: false,
-        width: 80,
-        height: 40,
-        x: 0,
-        y: 0,
-        fontSize: "12px",
-        fontColor: "black",
-        borderRadius: "5px", 
-        borderThickness: "2px",
-        borderColor: "black",
-        background: "white",
+        currentControl: null,
         controls: [],
     }
 
+    updateBorder = (b) => {
+        console.log(b.target.name);
+        var currentControl;
+        for (var i = 0; i < this.props.wireframe.controls.length; i++) {
+            if (this.state.key === this.props.wireframe.controls[i].key) {
+                currentControl = this.props.wireframe.controls[i];
+            }
+        }
+        currentControl[b.target.name] = b.target.value;
+        for(var j=0; j<this.props.wireframe.controls.length;j++){
+            if(this.props.wireframe.controls[j].key===this.state.key){
+                this.props.wireframe.controls[j]=currentControl;
+            }
+        }
+        this.props.wireframes[this.props.wireframe.key] = this.props.wireframe;
+        const fireStore = getFirestore();
+            fireStore.collection('users').doc(this.props.auth.uid).update({
+                wireframes: this.props.wireframes,
+        });
+    }
     updateProperties = (key, width, height, x, y) => {
         var wireframe = this.props.wireframe;
         for (let i = 0; i < wireframe.controls.length; i++) {
@@ -39,10 +50,126 @@ class EditScreen extends Component {
         }
     }
 
-    getControlKey = (key) => {
-        this.state.key = key;
-        console.log(this.state.key);
+    updateFontColor = (color) => {
+        var currentControl;
+        for (var i = 0; i < this.props.wireframe.controls.length; i++) {
+            if (this.state.key === this.props.wireframe.controls[i].key) {
+                currentControl = this.props.wireframe.controls[i];
+                currentControl.fontColor = color.hex;
+            }
+        }
+
+        if (currentControl) {
+            for (var j = 0; j < this.props.wireframe.controls.length; j++) {
+                if (this.state.key === this.props.wireframe.controls[j].key) {
+                    this.props.wireframe.controls[j] = currentControl;
+                }
+            }
+        }
+        
+        const fireStore = getFirestore();
+        fireStore.collection('users').doc(this.props.auth.uid).update({
+            wireframes: this.props.wireframes,
+        });
     }
+
+    updateBorderColor = (color) => {
+        var currentControl;
+        for (var i = 0; i < this.props.wireframe.controls.length; i++) {
+            if (this.state.key === this.props.wireframe.controls[i].key) {
+                currentControl = this.props.wireframe.controls[i];
+                currentControl.borderColor = color.hex;
+            }
+        }
+
+        if (currentControl) {
+            for (var j = 0; j < this.props.wireframe.controls.length; j++) {
+                if (this.state.key === this.props.wireframe.controls[j].key) {
+                    this.props.wireframe.controls[j] = currentControl;
+                }
+            }
+        }
+        
+        const fireStore = getFirestore();
+        fireStore.collection('users').doc(this.props.auth.uid).update({
+            wireframes: this.props.wireframes,
+        });
+    }
+
+    updateBackgroundColor = (color) => {
+        var currentControl;
+        for (var i = 0; i < this.props.wireframe.controls.length; i++) {
+            if (this.state.key === this.props.wireframe.controls[i].key) {
+                currentControl = this.props.wireframe.controls[i];
+                currentControl.background = color.hex;
+            }
+        }
+
+        if (currentControl) {
+            for (var j = 0; j < this.props.wireframe.controls.length; j++) {
+                if (this.state.key === this.props.wireframe.controls[j].key) {
+                    this.props.wireframe.controls[j] = currentControl;
+                }
+            }
+        }
+        
+        const fireStore = getFirestore();
+        fireStore.collection('users').doc(this.props.auth.uid).update({
+            wireframes: this.props.wireframes,
+        });
+    }
+
+    getControlKey = (key) => {
+        this.setState({key: key});
+        for (let i = 0; i < this.props.wireframe.controls.length; i++) {
+            if (key == this.props.wireframe.controls[i].key) {
+                this.setState({currentControl: this.props.wireframe.controls[i]});
+            }
+        }
+    }
+
+    handleKeyPress = (e) => {
+        if (this.state.currentControl) {
+            console.log(this.state.currentControl.key);
+            let button = String.fromCharCode(e.which).toLowerCase();
+            if (e.keyCode === 8) {
+                e.preventDefault();
+                // for (let i = 0; i < this.props.wireframe.controls.length; i++) {
+                //     if (this.state.currentControl === this.props.wireframe.controls[i]) {
+                //         this.props.wireframe.controls.splice(this.state.currentControl, 1);
+                //     }
+                // }
+                // const fireStore = getFirestore();
+                // fireStore.collection('users').doc(this.props.auth.uid).update({
+                //     wireframes: this.props.wireframes,
+                // });
+            }
+            else if (e.ctrlKey && button === 'd') {
+                const dupe = {
+                name: this.state.currentControl.name,
+                key: this.props.wireframe.controls.length,
+                width: this.state.currentControl.width,
+                height: this.state.currentControl.height,
+                x: this.state.currentControl.x + 100,
+                y: this.state.currentControl.y + 100,
+                fontSize: this.state.currentControl.fontSize,
+                fontColor: this.state.currentControl.fontColor,
+                borderRadius: this.state.currentControl.borderRadius, 
+                borderThickness: this.state.currentControl.borderThickness,
+                borderColor: this.state.currentControl.borderColor,
+                background: this.state.currentControl.background,
+                }
+                dupe.innerHTML = document.getElementById(this.state.currentControl.name + this.state.key).innerHTML;
+                // console.log(document.getElementById(this.state.currentControl.name + this.state.key).innerHTML);
+                this.props.wireframe.controls.push(dupe);
+                const fireStore = getFirestore();
+                fireStore.collection('users').doc(this.props.auth.uid).update({
+                    wireframes: this.props.wireframes,
+                });
+            }
+        }
+    }
+
     zoomIn = () => {
         
     }
@@ -54,21 +181,19 @@ class EditScreen extends Component {
         const newControl = {
             name: controlName,
             key: length,
-            width: this.state.width,
-            height: this.state.height,
-            x: this.state.x,
-            y: this.state.y,
-            fontSize: this.state.fontSize,
-            fontColor: this.state.fontColor,
-            borderRadius: this.state.borderRadius, 
-            borderThickness: this.state.borderThickness,
-            borderColor: this.state.borderColor,
-            background: this.state.background,
+            width: 80,
+            height: 40,
+            x: 0,
+            y: 0,
+            fontSize: "16px",
+            fontColor: "black",
+            borderRadius: "5px", 
+            borderThickness: "2px",
+            borderColor: "black",
+            background: "white",
         }
         if (controlName === "button") {
-            newControl.background = "waves-teal";
             newControl.borderColor = "teal";
-            newControl.fontColor = "white";
         }
         if (controlName === "container") {
             newControl.height = 80;
@@ -93,6 +218,7 @@ class EditScreen extends Component {
         this.setState({close: true});
     }
     render() {
+        document.addEventListener('keydown', this.handleKeyPress);
        if (this.state.close || this.state.save) {
            return <Redirect to="/" />
        }
@@ -100,11 +226,17 @@ class EditScreen extends Component {
            return <React.Fragment />
        }
 
-       const wireframe = this.props.wireframe;
-
-    
+        const wireframe = this.props.wireframe;
+        var currentControl;
+        if (wireframe !== null) {
+            for (var i = 0; i < wireframe.controls.length; i++) {
+                if (this.state.key === wireframe.controls[i].key) {
+                    currentControl = wireframe.controls[i];
+                }
+            }
+        }
         return (
-            
+    
             <div className="row">
                     <div className="column col s3">
                         <div className="row">
@@ -136,10 +268,42 @@ class EditScreen extends Component {
                         </center>
                     </div>
                     <div className="column col s5">
-                        <ListControls wireframe={wireframe} updateProperties={this.updateProperties} getControlKey={this.getControlKey}/>
+                        <ListControls wireframe={wireframe} updateProperties={this.updateProperties}
+                        getControlKey={this.getControlKey}/>
                     </div>
                     <div className="column col s3">
-                        <ControlsProperties wireframe={wireframe} key={this.state.key}/>
+                        <h4>Properties</h4>
+                        <div>Font Size: 
+                            <input type="text" value={((this.state.key||this.state.key===0) && currentControl) ? currentControl.fontSize : ""}></input>
+                        </div>
+                        <div>Font Color: 
+                        <SliderPicker
+                            color={ ((this.state.key||this.state.key===0) && currentControl) ? currentControl.fontColor : "red"}
+                            onChangeComplete={ color => this.updateFontColor (color)}
+                        />
+                        </div>
+                        <div>Background Color
+                        <SliderPicker
+                            color={ ((this.state.key||this.state.key===0) && currentControl) ? currentControl.background : "red"}
+                            onChangeComplete={ color => this.updateBackgroundColor (color)}
+                        />
+                        </div>
+                        <div>Border Color
+                        <SliderPicker
+                            color={ ((this.state.key||this.state.key===0) && currentControl) ? currentControl.borderColor : "red"}
+                            onChangeComplete={ color => this.updateBorderColor (color)}
+                        />
+                        </div>
+                        <div> Border Thickness
+                            <input name="borderThickness" type="text" value={((this.state.key ||this.state.key===0) && currentControl) ? currentControl.borderThickness : ""} 
+                            onChange={e => this.updateBorder(e)}
+                            ></input>
+                        </div>
+                        <div> Border Radius
+                            <input name="borderRadius" type="text" value={((this.state.key ||this.state.key===0) && currentControl) ? currentControl.borderRadius : ""}
+                            onChange={e => this.updateBorder(e)}
+                            ></input>
+                        </div>
                     </div>
             </div>
         );

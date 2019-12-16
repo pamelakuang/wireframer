@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import {getFirestore} from 'redux-firestore'
-import { Button } from 'react-materialize';
-import Container from 'react-materialize/lib/Container';
 import { Rnd }from 'react-rnd'
 
 class ControlsCard extends Component {
@@ -14,6 +11,7 @@ class ControlsCard extends Component {
         x: this.props.control.x,
         y: this.props.control.y,
     }
+    
     render () {
         const {control} = this.props;
         if (control.name === "button") {
@@ -32,11 +30,12 @@ class ControlsCard extends Component {
                 this.props.updateProperties(control.key, this.state.width, this.state.height, this.state.x, this.state.y);
                 }}
                 >
-                <Button className="container_controls" id={control.name + control.key} 
+                <div className="container_controls" id={control.name + control.key}
+                    onClick={() => this.props.getControlKey(control.key)}
                     style={{color:control.fontColor, background:control.background, fontSize: control.fontSize,
-                    borderRadius:control.borderRadius, borderStyle:" solid", borderColor:control.borderColor, 
+                    borderRadius:control.borderRadius, borderStyle:"solid", borderColor:control.borderColor, 
                     borderWidth:control.borderThickness,}}>Submit
-                </Button>
+                </div>
             </Rnd>
         }
         else if (control.name === "container") {
@@ -54,11 +53,12 @@ class ControlsCard extends Component {
                     });
                 this.props.updateProperties(control.key, this.state.width, this.state.height, this.state.x, this.state.y);
                 }}>
-                <Container className="container_controls" id={control.name + control.key}
+                <div className="container_controls" id={control.name + control.key}
+                    onClick={() => this.props.getControlKey(control.key)}
                     style={{color:control.fontColor, background:control.background, fontSize: control.fontSize,
-                    borderRadius:control.borderRadius, borderStyle:" solid", borderColor:control.borderColor, 
+                    borderRadius:control.borderRadius, borderStyle:"solid", borderColor:control.borderColor, 
                     borderWidth:control.borderThickness,}}>
-                </Container>
+                </div>
             </Rnd>
         }
         else if (control.name === "textfield") {
@@ -77,9 +77,10 @@ class ControlsCard extends Component {
                 this.props.updateProperties(control.key, this.state.width, this.state.height, this.state.x, this.state.y);
                 }}
                 >
-                <input type="text" className="container_controls" id={control.name + control.key} 
+                <input type="text" placeholder="textfield" className="container_controls" id={control.name + control.key}
+                    onClick={()=>this.props.getControlKey(control.key)} 
                     style={{color:control.fontColor, background:control.background, fontSize: control.fontSize,
-                    borderRadius:control.borderRadius, borderStyle:" solid", borderColor:control.borderColor, 
+                    borderRadius:control.borderRadius, borderStyle:"solid", borderColor:control.borderColor, 
                     borderWidth:control.borderThickness,}}>
                 </input>
             </Rnd>
@@ -100,12 +101,12 @@ class ControlsCard extends Component {
                 this.props.updateProperties(control.key, this.state.width, this.state.height, this.state.x, this.state.y);
                 }}
                 >
-                <label className="container_controls" id={control.name + control.key} 
-                    onClick={() => this.props.getControlKey(control.key)}
+                <input type="text" placeholder="label"className="container_controls" id={control.name + control.key} 
+                    onClick={()=>this.props.getControlKey(control.key)}
                     style={{color:control.fontColor, background:control.background, fontSize: control.fontSize,
-                    borderRadius:control.borderRadius, borderStyle:" solid", borderColor:control.borderColor, 
-                    borderWidth:control.borderThickness,}}>Label
-                </label>
+                    borderRadius:control.borderRadius, borderStyle:"solid", borderColor:control.borderColor, 
+                    borderWidth:control.borderThickness,}}>
+                </input>
             </Rnd>
         }
     }
